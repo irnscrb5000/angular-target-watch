@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="APP">
+  <head>
+    <title>IrnTargetWatcher</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/vendor/angular/angular.min.js"></script>
+    <script src="js/TargetWatch.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-controller="MainController">
+    <ol>
+      <li>Specify a value to watch for</li>
+      <li>Choose the number of watchers you want created, click 'Create watchers'</li>
+      <li>As a value, type whatever you like, as soon as you type the value being
+        watched, the number of matches should become equal to the number of watchers</li>
+    </ol>
+    <label for="targetValue">Value to match:</label>
+    <input name="targetValue" type="text" ng-model="targetValue" />
+    <br>
+    <label for="nrWatchers">Amount of watchers to create:</label>
+    <input name="nrWatchers" type="number" ng-model="nrWatchers" />
+    <input type="button" value="Create watchers"
+           ng-click="createWatchers()"
+           ng-disabled="targetValue === ''"/>
+    <br>
+    <label for="watchedField">Type value here:</label>
+    <input name="watchedField" type="text" placeholder="value" ng-model="valueToWatch" />
+
+    <p>Number of matches: <span style="color: red;">{{nrHits}}</span></p>
+  </body>
+</html>
